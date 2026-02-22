@@ -2,133 +2,279 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=2.0"/>
-  <title>Shivam Paswan | Video Editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivam – Video Editor Portfolio</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { background: #0f172a; color: #fff; }
+    :root {
+      --bg: #0b0f1a;
+      --card: #121a2a;
+      --accent: #4da3ff;
+      --text: #e6ecff;
+      --muted: #9fb0ff;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: radial-gradient(1200px 600px at 10% -10%, #16203a, transparent), var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    .container { max-width: 1100px; margin: auto; padding: 16px; }
+
     header {
-      padding: 20px;
-      background: #020617;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: grid; gap: 16px; padding: 24px; border-radius: var(--radius);
+      background: linear-gradient(135deg, #121a2a, #0c1222);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    header h1 { color: #38bdf8; }
-    nav a {
-      margin-left: 15px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+    .hero { display: grid; gap: 12px; }
+    .badge { display: inline-block; background: rgba(77,163,255,.15); color: var(--accent); padding: 6px 10px; border-radius: 999px; font-weight: 600; width: fit-content; }
+    h1 { font-size: clamp(24px, 4vw, 36px); margin: 0; }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #081020; padding: 10px 14px; border-radius: 10px; font-weight: 700; }
+    .btn.alt { background: transparent; color: var(--text); border: 1px solid #2a3a6a; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
+    .card { background: linear-gradient(180deg, #121a2a, #0c1222); border: 1px solid #1e2a4a; border-radius: var(--radius); padding: 16px; }
+    .card h2 { margin: 0 0 8px; }
+    ul { margin: 8px 0 0; padding-left: 18px; }
+    li { margin: 6px 0; color: var(--muted); }
+
+    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .service { background: #0c1222; border: 1px dashed #24346a; border-radius: 12px; padding: 12px; }
+
+    .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .video {
+      background: #0c1222; border-radius: 12px; padding: 8px; border: 1px solid #1e2a4a;
+      aspect-ratio: 16 / 9; display: grid; place-items: center; color: var(--muted);
     }
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .hero h2 { font-size: 36px; color: #38bdf8; }
-    .hero p { margin-top: 10px; font-size: 18px; color: #cbd5f5; }
-    .section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .section h3 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #38bdf8;
-      text-align: center;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #020617;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      border: 1px solid #1e293b;
-    }
-    .card h4 { color: #38bdf8; margin-bottom: 10px; }
-    .contact {
-      text-align: center;
-      background: #020617;
-      padding: 40px 20px;
-    }
-    .contact p { margin: 10px 0; font-size: 18px; }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #020617;
-      color: #94a3b8;
-      font-size: 14px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #38bdf8;
-      color: #020617;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+    iframe { width: 100%; height: 100%; border-radius: 10px; border: 0; }
+
+    footer { margin: 24px 0 8px; text-align: center; color: var(--muted); }
+
+    @media (max-width: 768px) {
+      .grid, .services, .videos { grid-template-columns: 1fr; }
+      header { padding: 16px; }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <span class="badge">Video Editor • Thumbnails • Shorts & Long Form</span>
+      <div class="hero">
+        <h1>Hi, I’m Shivam — Professional Video Editor</h1>
+        <p>I create high-retention YouTube videos, Reels, Shorts, thumbnails and clean cinematic edits. Fast delivery. Quality guaranteed.</p>
+        <div class="cta">
+          <a class="btn" href="mailto:shivamgujar67902@gmail.com">Contact on Email</a>
+          <a class="btn alt" href="https://wa.me/916392548090" target="_blank">WhatsApp Me</a>
+        </div>
+      </div>
+    </header>
 
-<header>
-  <h1>Shivam Paswan</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <section class="grid">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>I’m a video editor with 5+ years of experience. I focus on storytelling, pacing, sound design and thumbnails that increase CTR.</p>
+        <ul>
+          <li>Tools: Alight Motion, Node Video</li>
+          <li>Turnaround: 24–48 hours (rush available)</li>
+          <li>Revisions: 2 free rounds</li>
+        </ul>
+      </div>
 
-<section class="hero">
-  <h2>Professional Video Editor</h2>
-  <p>I create cinematic, engaging & viral video edits for YouTube, Reels & Shorts.</p>
-  <a class="btn" href="#contact">Hire Me</a>
-</section>
+      <div class="card">
+        <h2>Services</h2>
+        <div class="services">
+          <div class="service">YouTube Video Editing</div>
+          <div class="service">Reels / Shorts Editing</div>
+          <div class="service">Thumbnail Design</div>
+          <div class="service">Cinematic Transitions</div>
+          <div class="service">Sound Design & Cleanup</div>
+          <div class="service">Color Correction</div>
+        </div>
+      </div>
+    </section>
 
-<section class="section" id="about">
-  <h3>About Me</h3>
-  <p style="text-align:center; max-width:700px; margin:auto; color:#cbd5f5;">
-    Hi, I’m Shivam from India. I am a professional Video Editor with 5+ years of experience.
-    I edit YouTube videos, Shorts, Reels, Thumbnails & Cinematic Videos using Alight Motion & Node Video.
-  </p>
-</section>
+    <section class="card">
+      <h2>My Editing Work (YouTube Links)</h2>
+      <p>नीचे अपने YouTube वीडियो के links डालो (बस iframe src बदलना है):</p>
+      <div class="videos">
+        <!-- Replace VIDEO_ID with your YouTube video id -->
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
 
-<section class="section" id="services">
-  <h3>My Services</h3>
-  <div class="cards">
-    <div class="card">
-      <h4>Video Editing</h4>
-      <p>YouTube, Reels, Shorts Editing</p>
-    </div>
-    <div class="card">
-      <h4>Thumbnail Design</h4>
-      <p>High CTR Thumbnails</p>
-    </div>
-    <div class="card">
-      <h4>Photo Editing</h4>
-      <p>Background Removal & Retouch</p>
-    </div>
-    <div class="card">
-      <h4>Cinematic Effects</h4>
-      <p>Professional Sound & Transitions</p>
-    </div>
+    <section class="grid">
+      <div class="card">
+        <h2>Why Choose Me</h2>
+        <ul>
+          <li>Retention-focused edits (hooks, pacing)</li>
+          <li>Clean captions & typography</li>
+          <li>Fast communication</li>
+          <li>Affordable pricing</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:shivamgujar67902@gmail.com">shivamgujar67902@gmail.com</a></p>
+        <p>Phone/WhatsApp: <a href="https://wa.me/916392548090" target="_blank">+91 6392548090</a></p>
+        <p>Location: India</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Shivam Paswan • All Rights Reserved
+    </footer>
   </div>
-</section>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivam – Video Editor Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: #121a2a;
+      --accent: #4da3ff;
+      --text: #e6ecff;
+      --muted: #9fb0ff;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: radial-gradient(1200px 600px at 10% -10%, #16203a, transparent), var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    .container { max-width: 1100px; margin: auto; padding: 16px; }
 
-<section class="contact" id="contact">
-  <h3>Contact Me</h3>
-  <p>📧 Email: shivamgujar67902@gmail.com</p>
-  <p>📞 Phone: +91-6392548090</p>
-  <p>📍 Location: India</p>
-</section>
+    header {
+      display: grid; gap: 16px; padding: 24px; border-radius: var(--radius);
+      background: linear-gradient(135deg, #121a2a, #0c1222);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .hero { display: grid; gap: 12px; }
+    .badge { display: inline-block; background: rgba(77,163,255,.15); color: var(--accent); padding: 6px 10px; border-radius: 999px; font-weight: 600; width: fit-content; }
+    h1 { font-size: clamp(24px, 4vw, 36px); margin: 0; }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #081020; padding: 10px 14px; border-radius: 10px; font-weight: 700; }
+    .btn.alt { background: transparent; color: var(--text); border: 1px solid #2a3a6a; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
+    .card { background: linear-gradient(180deg, #121a2a, #0c1222); border: 1px solid #1e2a4a; border-radius: var(--radius); padding: 16px; }
+    .card h2 { margin: 0 0 8px; }
+    ul { margin: 8px 0 0; padding-left: 18px; }
+    li { margin: 6px 0; color: var(--muted); }
+
+    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .service { background: #0c1222; border: 1px dashed #24346a; border-radius: 12px; padding: 12px; }
+
+    .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .video {
+      background: #0c1222; border-radius: 12px; padding: 8px; border: 1px solid #1e2a4a;
+      aspect-ratio: 16 / 9; display: grid; place-items: center; color: var(--muted);
+    }
+    iframe { width: 100%; height: 100%; border-radius: 10px; border: 0; }
+
+    footer { margin: 24px 0 8px; text-align: center; color: var(--muted); }
+
+    @media (max-width: 768px) {
+      .grid, .services, .videos { grid-template-columns: 1fr; }
+      header { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Video Editor • Thumbnails • Shorts & Long Form</span>
+      <div class="hero">
+        <h1>Hi, I’m Shivam — Professional Video Editor</h1>
+        <p>I create high-retention YouTube videos, Reels, Shorts, thumbnails and clean cinematic edits. Fast delivery. Quality guaranteed.</p>
+        <div class="cta">
+          <a class="btn" href="mailto:shivamgujar67902@gmail.com">Contact on Email</a>
+          <a class="btn alt" href="https://wa.me/916392548090" target="_blank">WhatsApp Me</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>I’m a video editor with 5+ years of experience. I focus on storytelling, pacing, sound design and thumbnails that increase CTR.</p>
+        <ul>
+          <li>Tools: Alight Motion, Node Video</li>
+          <li>Turnaround: 24–48 hours (rush available)</li>
+          <li>Revisions: 2 free rounds</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Services</h2>
+        <div class="services">
+          <div class="service">YouTube Video Editing</div>
+          <div class="service">Reels / Shorts Editing</div>
+          <div class="service">Thumbnail Design</div>
+          <div class="service">Cinematic Transitions</div>
+          <div class="service">Sound Design & Cleanup</div>
+          <div class="service">Color Correction</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>My Editing Work (YouTube Links)</h2>
+      <p>नीचे अपने YouTube वीडियो के links डालो (बस iframe src बदलना है):</p>
+      <div class="videos">
+        <!-- Replace VIDEO_ID with your YouTube video id -->
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Why Choose Me</h2>
+        <ul>
+          <li>Retention-focused edits (hooks, pacing)</li>
+          <li>Clean captions & typography</li>
+          <li>Fast communication</li>
+          <li>Affordable pricing</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:shivamgujar67902@gmail.com">shivamgujar67902@gmail.com</a></p>
+        <p>Phone/WhatsApp: <a href="https://wa.me/916392548090" target="_blank">+91 6392548090</a></p>
+        <p>Location: India</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Shivam Paswan • All Rights Reserved
+    </footer>
+  </div>
+</body>
+</html></section>
 
 <footer>
   © 2026 Shivam Paswan | All Rights Reserved
