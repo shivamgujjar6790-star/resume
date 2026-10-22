@@ -1,345 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivam – Video Editor Portfolio</title>
-  <style>
-    :root {
-      --bg: #0b0f1a;
-      --card: #121a2a;
-      --accent: #4da3ff;
-      --text: #e6ecff;
-      --muted: #9fb0ff;
-      --radius: 16px;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: radial-gradient(1200px 600px at 10% -10%, #16203a, transparent), var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    a { color: var(--accent); text-decoration: none; }
-    .container { max-width: 1100px; margin: auto; padding: 16px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam | Professional Portfolio</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;600&display=swap');
 
-    header {
-      display: grid; gap: 16px; padding: 24px; border-radius: var(--radius);
-      background: linear-gradient(135deg, #121a2a, #0c1222);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    .hero { display: grid; gap: 12px; }
-    .badge { display: inline-block; background: rgba(77,163,255,.15); color: var(--accent); padding: 6px 10px; border-radius: 999px; font-weight: 600; width: fit-content; }
-    h1 { font-size: clamp(24px, 4vw, 36px); margin: 0; }
-    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn { background: var(--accent); color: #081020; padding: 10px 14px; border-radius: 10px; font-weight: 700; }
-    .btn.alt { background: transparent; color: var(--text); border: 1px solid #2a3a6a; }
+        /* CSS Variables */
+        :root {
+            --bg-color: #050914; /* Deep premium dark */
+            --primary-color: #00e5ff; /* Cyan/Teal from reference */
+            --text-main: #ffffff;
+            --text-muted: #8892b0;
+        }
 
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
-    .card { background: linear-gradient(180deg, #121a2a, #0c1222); border: 1px solid #1e2a4a; border-radius: var(--radius); padding: 16px; }
-    .card h2 { margin: 0 0 8px; }
-    ul { margin: 8px 0 0; padding-left: 18px; }
-    li { margin: 6px 0; color: var(--muted); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .service { background: #0c1222; border: 1px dashed #24346a; border-radius: 12px; padding: 12px; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-    .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .video {
-      background: #0c1222; border-radius: 12px; padding: 8px; border: 1px solid #1e2a4a;
-      aspect-ratio: 16 / 9; display: grid; place-items: center; color: var(--muted);
-    }
-    iframe { width: 100%; height: 100%; border-radius: 10px; border: 0; }
+        /* Navigation */
+        nav {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 9, 20, 0.9);
+            backdrop-filter: blur(10px);
+        }
 
-    footer { margin: 24px 0 8px; text-align: center; color: var(--muted); }
+        nav .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
 
-    @media (max-width: 768px) {
-      .grid, .services, .videos { grid-template-columns: 1fr; }
-      header { padding: 16px; }
-    }
-  </style>
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 100px 20px 20px;
+            background: radial-gradient(circle at center, #112233 0%, var(--bg-color) 70%);
+        }
+
+        .hero-img-container {
+            width: 250px;
+            height: 350px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.1);
+            position: relative;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.1) brightness(0.9);
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 8vw;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            line-height: 1;
+            margin-top: -80px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, var(--text-main) 0%, rgba(255,255,255,0.2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.8;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 30px auto;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Portfolio / Work Section */
+        .work-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .video-card {
+            background: #0f1626;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2);
+        }
+
+        /* 16:9 Videos */
+        .ratio-16-9 {
+            aspect-ratio: 16 / 9;
+            background: #1a2436; /* Placeholder for YouTube embed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        /* 9:16 Shorts */
+        .ratio-9-16-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ratio-9-16 {
+            aspect-ratio: 9 / 16;
+            background: #1a2436; /* Placeholder for YouTube Short embed */
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: transform 0.4s ease;
+        }
+
+        .ratio-9-16:hover {
+            transform: scale(1.03);
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: #090e1a;
+            border-top: 1px solid rgba(0, 229, 255, 0.1);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 40px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: var(--bg-color);
+            background: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .whatsapp-btn:hover {
+            background: #fff;
+            color: #25D366;
+            box-shadow: 0 0 20px #25D366;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            nav ul { display: none; } /* Hamburger menu can be added here */
+            .hero h1 { font-size: 15vw; margin-top: -50px; }
+            .hero-img-container { width: 200px; height: 280px; }
+            .section-title { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <span class="badge">Video Editor • Thumbnails • Shorts & Long Form</span>
-      <div class="hero">
-        <h1>Hi, I’m Shivam — Professional Video Editor</h1>
-        <p>I create high-retention YouTube videos, Reels, Shorts, thumbnails and clean cinematic edits. Fast delivery. Quality guaranteed.</p>
-        <div class="cta">
-          <a class="btn" href="mailto:shivamgujar67902@gmail.com">Contact on Email</a>
-          <a class="btn alt" href="https://wa.me/916392548090" target="_blank">WhatsApp Me</a>
-        </div>
-      </div>
-    </header>
 
-    <section class="grid">
-      <div class="card">
-        <h2>About Me</h2>
-        <p>I’m a video editor with 5+ years of experience. I focus on storytelling, pacing, sound design and thumbnails that increase CTR.</p>
+    <nav>
+        <div class="logo">SHIVAM</div>
         <ul>
-          <li>Tools: Alight Motion, Node Video</li>
-          <li>Turnaround: 24–48 hours (rush available)</li>
-          <li>Revisions: 2 free rounds</li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
+    </nav>
 
-      <div class="card">
-        <h2>Services</h2>
-        <div class="services">
-          <div class="service">YouTube Video Editing</div>
-          <div class="service">Reels / Shorts Editing</div>
-          <div class="service">Thumbnail Design</div>
-          <div class="service">Cinematic Transitions</div>
-          <div class="service">Sound Design & Cleanup</div>
-          <div class="service">Color Correction</div>
+    <section id="home" class="hero fade-in">
+        <div class="hero-img-container">
+            <!-- Best professional picture selected -->
+            <img src="001.jpg" alt="Shivam - Professional">
         </div>
-      </div>
+        <h1>SHIVAM</h1>
+        <p>I craft high-retention visual experiences. Specializing in brutal motion graphics, dynamic video editing, and premium thumbnail design. Let's make your content undeniable.</p>
     </section>
 
-    <section class="card">
-      <h2>My Editing Work (YouTube Links)</h2>
-      <p>नीचे अपने YouTube वीडियो के links डालो (बस iframe src बदलना है):</p>
-      <div class="videos">
-        <!-- Replace VIDEO_ID with your YouTube video id -->
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+    <section id="work" class="work-section">
+        <h2 class="section-title fade-in">Featured Work</h2>
+        
+        <div class="video-grid">
+            <!-- 16:9 Videos Column -->
+            <div class="fade-in">
+                <h3 style="margin-bottom: 20px; font-family: 'Oswald'; font-weight: 300;">Long Form Edits</h3>
+                <div class="video-card ratio-16-9" style="margin-bottom: 20px;">
+                    <!-- Embed your YouTube Video 1 Here -->
+                    <p>YouTube Link 1 (16:9)</p>
+                </div>
+                <div class="video-card ratio-16-9">
+                    <!-- Embed your YouTube Video 2 Here -->
+                    <p>YouTube Link 2 (16:9)</p>
+                </div>
+            </div>
+
+            <!-- 9:16 Shorts Column -->
+            <div class="fade-in">
+                <h3 style="margin-bottom: 20px; font-family: 'Oswald'; font-weight: 300;">High-Retention Shorts</h3>
+                <div class="ratio-9-16-container">
+                    <div class="ratio-9-16">
+                        <!-- Embed your YouTube Short 1 Here -->
+                        <p style="text-align: center; padding: 10px;">Short 1<br>(9:16)</p>
+                    </div>
+                    <div class="ratio-9-16">
+                        <!-- Embed your YouTube Short 2 Here -->
+                        <p style="text-align: center; padding: 10px;">Short 2<br>(9:16)</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
-        </div>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
-        </div>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
-        </div>
-      </div>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>Why Choose Me</h2>
-        <ul>
-          <li>Retention-focused edits (hooks, pacing)</li>
-          <li>Clean captions & typography</li>
-          <li>Fast communication</li>
-          <li>Affordable pricing</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:shivamgujar67902@gmail.com">shivamgujar67902@gmail.com</a></p>
-        <p>Phone/WhatsApp: <a href="https://wa.me/916392548090" target="_blank">+91 6392548090</a></p>
-        <p>Location: India</p>
-      </div>
+    <section id="contact" class="contact-section fade-in">
+        <h2 class="section-title" style="color: white; font-size: 2.5rem;">Let's Work Together</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Ready to level up your content?</p>
+        
+        <!-- Replace YOUR_NUMBER_HERE with your actual number -->
+        <a href="tel:+91YOUR_NUMBER_HERE" class="contact-btn">Call Me</a>
+        
+        <!-- Replace YOUR_NUMBER_HERE with your WhatsApp number -->
+        <a href="https://wa.me/91YOUR_NUMBER_HERE" class="contact-btn whatsapp-btn" target="_blank">WhatsApp Me</a>
     </section>
 
-    <footer>
-      © 2026 Shivam Paswan • All Rights Reserved
-    </footer>
-  </div>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivam – Video Editor Portfolio</title>
-  <style>
-    :root {
-      --bg: #0b0f1a;
-      --card: #121a2a;
-      --accent: #4da3ff;
-      --text: #e6ecff;
-      --muted: #9fb0ff;
-      --radius: 16px;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: radial-gradient(1200px 600px at 10% -10%, #16203a, transparent), var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    a { color: var(--accent); text-decoration: none; }
-    .container { max-width: 1100px; margin: auto; padding: 16px; }
+    <script>
+        // Scroll Animation Script (Smooth and Premium)
+        const faders = document.querySelectorAll('.fade-in');
+        
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-    header {
-      display: grid; gap: 16px; padding: 24px; border-radius: var(--radius);
-      background: linear-gradient(135deg, #121a2a, #0c1222);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    .hero { display: grid; gap: 12px; }
-    .badge { display: inline-block; background: rgba(77,163,255,.15); color: var(--accent); padding: 6px 10px; border-radius: 999px; font-weight: 600; width: fit-content; }
-    h1 { font-size: clamp(24px, 4vw, 36px); margin: 0; }
-    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn { background: var(--accent); color: #081020; padding: 10px 14px; border-radius: 10px; font-weight: 700; }
-    .btn.alt { background: transparent; color: var(--text); border: 1px solid #2a3a6a; }
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
 
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
-    .card { background: linear-gradient(180deg, #121a2a, #0c1222); border: 1px solid #1e2a4a; border-radius: var(--radius); padding: 16px; }
-    .card h2 { margin: 0 0 8px; }
-    ul { margin: 8px 0 0; padding-left: 18px; }
-    li { margin: 6px 0; color: var(--muted); }
-
-    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .service { background: #0c1222; border: 1px dashed #24346a; border-radius: 12px; padding: 12px; }
-
-    .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .video {
-      background: #0c1222; border-radius: 12px; padding: 8px; border: 1px solid #1e2a4a;
-      aspect-ratio: 16 / 9; display: grid; place-items: center; color: var(--muted);
-    }
-    iframe { width: 100%; height: 100%; border-radius: 10px; border: 0; }
-
-    footer { margin: 24px 0 8px; text-align: center; color: var(--muted); }
-
-    @media (max-width: 768px) {
-      .grid, .services, .videos { grid-template-columns: 1fr; }
-      header { padding: 16px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <span class="badge">Video Editor • Thumbnails • Shorts & Long Form</span>
-      <div class="hero">
-        <h1>Hi, I’m Shivam — Professional Video Editor</h1>
-        <p>I create high-retention YouTube videos, Reels, Shorts, thumbnails and clean cinematic edits. Fast delivery. Quality guaranteed.</p>
-        <div class="cta">
-          <a class="btn" href="mailto:shivamgujar67902@gmail.com">Contact on Email</a>
-          <a class="btn alt" href="https://wa.me/916392548090" target="_blank">WhatsApp Me</a>
-        </div>
-      </div>
-    </header>
-
-    <section class="grid">
-      <div class="card">
-        <h2>About Me</h2>
-        <p>I’m a video editor with 5+ years of experience. I focus on storytelling, pacing, sound design and thumbnails that increase CTR.</p>
-        <ul>
-          <li>Tools: Alight Motion, Node Video</li>
-          <li>Turnaround: 24–48 hours (rush available)</li>
-          <li>Revisions: 2 free rounds</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>Services</h2>
-        <div class="services">
-          <div class="service">YouTube Video Editing</div>
-          <div class="service">Reels / Shorts Editing</div>
-          <div class="service">Thumbnail Design</div>
-          <div class="service">Cinematic Transitions</div>
-          <div class="service">Sound Design & Cleanup</div>
-          <div class="service">Color Correction</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>My Editing Work (YouTube Links)</h2>
-      <p>नीचे अपने YouTube वीडियो के links डालो (बस iframe src बदलना है):</p>
-      <div class="videos">
-        <!-- Replace VIDEO_ID with your YouTube video id -->
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
-        </div>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
-        </div>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
-        </div>
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid">
-      <div class="card">
-        <h2>Why Choose Me</h2>
-        <ul>
-          <li>Retention-focused edits (hooks, pacing)</li>
-          <li>Clean captions & typography</li>
-          <li>Fast communication</li>
-          <li>Affordable pricing</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:shivamgujar67902@gmail.com">shivamgujar67902@gmail.com</a></p>
-        <p>Phone/WhatsApp: <a href="https://wa.me/916392548090" target="_blank">+91 6392548090</a></p>
-        <p>Location: India</p>
-      </div>
-    </section>
-
-    <footer>
-      © 2026 Shivam Paswan • All Rights Reserved
-    </footer>
-  </div>
-</body>
-</html></section>
-
-<footer>
-  © 2026 Shivam Paswan | All Rights Reserved
-</footer>
-
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
 </body>
 </html>
-
-<section class="section" id="videos">
-  <h3>My Editing Work</h3>
-  <div class="cards">
-    <div class="card">
-      <video width="100%" controls>
-        <source src="edit1.webm" type="autoplay">
-      </video>
-      <p>Shorts Edit</p>
-    </div>
-
-    <div class="card">
-      <video width="100%" controls>
-        <source src="https://youtube.com/shorts/ei16_xExNHo?si=wMDTlP6kmdtMlNgx" type="video/mp4">
-      </video>
-      <p>YouTube</p>
-    </div>
-  </div>
-</section>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Video Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #0f0f0f;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .video-box {
-      width: 95%;
-      max-width: 900px;
-      aspect-ratio: 16 / 9;
-      box-shadow: 0 0 20px rgba(255,0,0,0.4);
-      border-radius: 12px;
-      overflow: hidden;
-      background: #000;
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    box-sizing: border-box;
-  }
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-</style>
