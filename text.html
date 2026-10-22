@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam | Professional Portfolio</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;600&display=swap');
+
+        /* CSS Variables */
+        :root {
+            --bg-color: #050914; /* Deep premium dark */
+            --primary-color: #00e5ff; /* Cyan/Teal from reference */
+            --text-main: #ffffff;
+            --text-muted: #8892b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 9, 20, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        nav .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 100px 20px 20px;
+            background: radial-gradient(circle at center, #112233 0%, var(--bg-color) 70%);
+        }
+
+        .hero-img-container {
+            width: 250px;
+            height: 350px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.1);
+            position: relative;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.1) brightness(0.9);
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 8vw;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            line-height: 1;
+            margin-top: -80px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, var(--text-main) 0%, rgba(255,255,255,0.2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.8;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 30px auto;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Portfolio / Work Section */
+        .work-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .video-card {
+            background: #0f1626;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2);
+        }
+
+        /* 16:9 Videos */
+        .ratio-16-9 {
+            aspect-ratio: 16 / 9;
+            background: #1a2436; /* Placeholder for YouTube embed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        /* 9:16 Shorts */
+        .ratio-9-16-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ratio-9-16 {
+            aspect-ratio: 9 / 16;
+            background: #1a2436; /* Placeholder for YouTube Short embed */
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: transform 0.4s ease;
+        }
+
+        .ratio-9-16:hover {
+            transform: scale(1.03);
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: #090e1a;
+            border-top: 1px solid rgba(0, 229, 255, 0.1);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 40px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: var(--bg-color);
+            background: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .whatsapp-btn:hover {
+            background: #fff;
+            color: #25D366;
+            box-shadow: 0 0 20px #25D366;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            nav ul { display: none; } /* Hamburger menu can be added here */
+            .hero h1 { font-size: 15vw; margin-top: -50px; }
+            .hero-img-container { width: 200px; height: 280px; }
+            .section-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SHIVAM</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero fade-in">
+        <div class="hero-img-container">
+            <!-- Best professional picture selected -->
+            <img src="001.jpg" alt="Shivam - Professional">
+        </div>
+        <h1>SHIVAM</h1>
+        <p>I craft high-retention visual experiences. Specializing in brutal motion graphics, dynamic video editing, and premium thumbnail design. Let's make your content undeniable.</p>
+    </section>
+
+    <section id="work" class="work-section">
+        <h2 class="section-title fade-in">Featured Work</h2>
+        
+        <div class="video-grid">
+            <!-- 16:9 Videos Column -->
+            <div class="fade-in">
+                <h3 style="margin-bottom: 20px; font-family: 'Oswald'; font-weight: 300;">Long Form Edits</h3>
+                <div class="video-card ratio-16-9" style="margin-bottom: 20px;">
+                    <!-- Embed your YouTube Video 1 Here -->
+                    <p>YouTube Link 1 (16:9)</p>
+                </div>
+                <div class="video-card ratio-16-9">
+                    <!-- Embed your YouTube Video 2 Here -->
+                    <p>YouTube Link 2 (16:9)</p>
+                </div>
+            </div>
+
+            <!-- 9:16 Shorts Column -->
+            <div class="fade-in">
+                <h3 style="margin-bottom: 20px; font-family: 'Oswald'; font-weight: 300;">High-Retention Shorts</h3>
+                <div class="ratio-9-16-container">
+                    <div class="ratio-9-16">
+                        <!-- Embed your YouTube Short 1 Here -->
+                        <p style="text-align: center; padding: 10px;">Short 1<br>(9:16)</p>
+                    </div>
+                    <div class="ratio-9-16">
+                        <!-- Embed your YouTube Short 2 Here -->
+                        <p style="text-align: center; padding: 10px;">Short 2<br>(9:16)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section fade-in">
+        <h2 class="section-title" style="color: white; font-size: 2.5rem;">Let's Work Together</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Ready to level up your content?</p>
+        
+        <!-- Replace YOUR_NUMBER_HERE with your actual number -->
+        <a href="tel:+91YOUR_NUMBER_HERE" class="contact-btn">Call Me</a>
+        
+        <!-- Replace YOUR_NUMBER_HERE with your WhatsApp number -->
+        <a href="https://wa.me/91YOUR_NUMBER_HERE" class="contact-btn whatsapp-btn" target="_blank">WhatsApp Me</a>
+    </section>
+
+    <script>
+        // Scroll Animation Script (Smooth and Premium)
+        const faders = document.querySelectorAll('.fade-in');
+        
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
